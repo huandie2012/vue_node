@@ -1,4 +1,5 @@
 const productList_col = require('../models/productList.js')
+const formidable = require("formidable");
 
 const getProductList = async (ctx, next) => {
     // ctx.set('Access-Control-Allow-Origin', '*')
@@ -17,8 +18,18 @@ const getProductList = async (ctx, next) => {
     }
 }
 
-const postProductList = async (ctx, next) => {
+const postProductList = async (ctx, next) => {//前端post请求发送formData的类型数据时，需要服务端引入中间件body-parser，主要原因是post请求发送的数据，是在http的body里面，所以需要进行解析，否则获取不到数据（数据为空）
+    //FormData没办法通过ctx.req.body拿到
     const req = ctx.request.body
+    // console.log(ctx)
+// console.log(ctx.request.query)
+console.log(111)
+    var form = new formidable.IncomingForm();
+    form.parse(ctx.request, async function(err,fields,files){
+        console.log(222)
+        if(err){throw err; return;}
+        console.log(fields);//{ name: base64字符串 }
+    });
 
     ctx.status = 200
     if(!req.msg || typeof req.msg != 'string'){

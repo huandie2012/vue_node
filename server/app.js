@@ -8,15 +8,14 @@ const logger = require('koa-logger')
 const cors = require('koa2-cors')
 const mongoose = require('mongoose')
 
+
 const productList_router = require('./routes/api/productList')
 
 // error handler
 onerror(app)
 
 // middlewares
-app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
-}))
+app.use(bodyparser())
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))

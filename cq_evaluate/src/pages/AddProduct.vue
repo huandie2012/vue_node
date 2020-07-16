@@ -81,24 +81,38 @@
 </template>
 
 <script>
+import { post } from '../utils/request'
 import { productUse } from '../utils/tool'
 export default {
-  name: 'AddProduct',
-  data () {
-    return {
-        formLayout: 'Inline',
-        form: this.$form.createForm(this, { name: 'coordinated' }),
-        productUse
+    name: 'AddProduct',
+    data () {
+        return {
+            formLayout: 'Inline',
+            form: this.$form.createForm(this, { name: 'coordinated' }),
+            productUse
+        }
+    },
+    methods: {
+        handleSubmit (e) {
+            e.preventDefault();
+            this.form.validateFields((err, values) => {
+                if (!err) {
+                    console.log('Received values of form: ', values);
+                    this.submitData(values)
+                }
+            });
+            
+        },
+        submitData (params) {
+            post('/product/submit', params).then(res => {
+                console.log(res)
+                // this.data = res.lists
+            })
+        },
+        handleSelectChange () {
+
+        }
     }
-  },
-  methods: {
-      handleSubmit (e) {
-
-      },
-      handleSelectChange () {
-
-      }
-  }
 }
 </script>
 

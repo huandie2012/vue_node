@@ -9,7 +9,7 @@ const REQUEST_CONFIG = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'X-Requested-With': 'XMLHttpRequest',
         withCredentials: true
-    },
+    }
 }
 
 export const request = (url, options, isShowError) => {
