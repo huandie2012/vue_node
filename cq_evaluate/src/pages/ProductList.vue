@@ -7,6 +7,12 @@
             :data-source="data"
             :rowKey="record => record._id"
         >
+            <a-icon 
+                slot="operate" 
+                slot-scope="text, record" 
+                type="delete" 
+                @click="handleDelete(record)"
+            />
         </a-table>
     </div>
 </template>
@@ -33,6 +39,12 @@ const columns = [
         dataIndex: 'product_use',
         key: 'product_use',
         align: 'center'
+    }, {
+        title: '操作',
+        dataIndex: 'operate',
+        key: 'operate',
+        align: 'center',
+        scopedSlots: { customRender: 'operate' },
     }
 ]
 import { get } from '../utils/request'
@@ -53,6 +65,9 @@ export default {
                 console.log(res)
                 this.data = res.lists
             })
+        },
+        handleDelete (record) {
+            console.log(record)
         }
     }
 }

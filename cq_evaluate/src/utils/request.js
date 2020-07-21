@@ -9,7 +9,14 @@ const REQUEST_CONFIG = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'X-Requested-With': 'XMLHttpRequest',
         withCredentials: true
-    }
+    },
+    transformRequest: [function (data) {
+      let ret = ''
+      for (let it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      return ret
+    }]
 }
 
 export const request = (url, options, isShowError) => {
