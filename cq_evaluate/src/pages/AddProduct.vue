@@ -128,7 +128,7 @@ export default {
                 if(res.errno === 0){
                     this.$notification.success({
                         message: res.msg
-                    });
+                    })
                 }
                 // this.data = res.lists
             })

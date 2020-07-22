@@ -1,6 +1,4 @@
-{"_id":{"$oid":"5f0c239722d59bab6d7c3e58"},"product_name":"洁面乳","product_brand":"悦诗风吟","product_price":80.0,"product_use":"洁面乳"}
-{"_id":{"$oid":"5f0c239c22d59bab6d7c3e59"},"product_name":"洁面乳","product_brand":"悦诗风吟","product_price":80.0,"product_use":"洁面乳"}
-{"_id":{"$oid":"5f0c23b722d59bab6d7c3e5a"},"product_name":"洁面乳","product_brand":"悦诗风吟","product_price":80.0,"product_use":"洁面乳"}
-{"_id":{"$oid":"5f0c23b822d59bab6d7c3e5b"},"product_name":"洁面乳","product_brand":"悦诗风吟","product_price":80.0,"product_use":"洁面乳"}
-{"_id":{"$oid":"5f1148a62b2e3b76f26bd61e"},"product_name":"AHC第七代胶原蛋白眼霜","product_use":"6","product_price":43}
-{"_id":{"$oid":"5f1148a72b2e3b76f26bd61f"},"product_name":"AHC第七代胶原蛋白眼霜","product_use":"6","product_price":43}
+{"_id":{"$oid":"5f17fde09dcc530546f7617d"},"product_name":"亦博气垫BB粉底液C21","product_use":"8","product_brand":"IOPE"}
+{"_id":{"$oid":"5f17fe169dcc530546f76180"},"product_name":"亦博气垫BB粉底液C21","product_use":"8","product_brand":"IOPE"}
+{"_id":{"$oid":"5f180004f892ea0645604a4c"},"product_name":"亦博气垫BB粉底液C21","product_use":"8","user_comment":"97分","product_brand":"IOPE","remarks":"带替换装","product_price":"209RMB","pay_money":"196RMB","own_comment":"中规中矩，遮瑕能力一般，比较湿润","product_volume":"15g/盒","product_effect":"遮瑕、提亮肤色、收缩毛孔","buy_date":"2016-02-24"}
+{"_id":{"$oid":"5f180350f892ea0645604a4d"},"product_name":"undefined","product_use":"undefined","user_comment":"undefined","product_brand":"undefined","remarks":"undefined","product_price":"undefined","pay_money":"undefined","own_comment":"undefined","product_volume":"undefined","product_effect":"undefined","buy_date":"2020-07-22"}
