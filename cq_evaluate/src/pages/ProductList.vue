@@ -13,49 +13,24 @@
             >
                 {{formatterUse(text)}}
             </span>
-            <a-icon 
+            <a-popconfirm
                 slot="operate" 
                 slot-scope="text, record" 
-                type="delete" 
-                @click="handleDelete(record)"
-            />
+                title="是否确定要删除这条数据?"
+                ok-text="确认"
+                cancel-text="取消"
+                @confirm="handleDelete(record)"
+            >
+                <a-icon type="delete" />
+            </a-popconfirm>
         </a-table>
     </div>
 </template>
 
 <script>
-const columns = [
-    {
-        title: '产品名称',
-        dataIndex: 'product_name',
-        key: 'product_name',
-        align: 'center'
-    }, {
-        title: '产品品牌',
-        dataIndex: 'product_brand',
-        key: 'product_brand',
-        align: 'center'
-    }, {
-        title: '产品价格',
-        dataIndex: 'product_price',
-        key: 'product_price',
-        align: 'center'
-    }, {
-        title: '产品用途',
-        dataIndex: 'product_use',
-        key: 'product_use',
-        align: 'center',
-        scopedSlots: { customRender: 'product_use' },
-    }, {
-        title: '操作',
-        dataIndex: 'operate',
-        key: 'operate',
-        align: 'center',
-        scopedSlots: { customRender: 'operate' },
-    }
-]
 import { get, post } from '../utils/request'
 import { productUse } from '../utils/tool'
+import { addProductCol } from '../utils/columns'
 export default {
     name: 'ProducList',
     mounted () {
@@ -63,7 +38,7 @@ export default {
     },
     data () {
         return {
-            columns,
+            columns: addProductCol,
             data: [],
             productUse
         }
@@ -102,6 +77,7 @@ export default {
 .product-list{
     background-color: #ffffff;
     padding: 20px 0;
+    min-height: calc(100vh - 114px);
     .list-table{
         width: 98%;
         margin: 0px auto;

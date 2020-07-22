@@ -7,7 +7,7 @@
             @submit="handleSubmit"
         >
             <a-row type="flex" justify='start' :gutter='24'>
-                <a-col :span='8'>
+                <a-col :span='6'>
                     <a-form-item label="产品名称">
                         <a-input
                             v-decorator="['product_name']"
@@ -28,18 +28,59 @@
                             </a-select-option>
                         </a-select>
                     </a-form-item>
+                    <a-form-item label="用户评价">
+                        <a-input
+                            v-decorator="['user_comment']"
+                            placeholder='请填写用户评价分数'
+                        />
+                    </a-form-item>
                 </a-col>
-                <a-col :span='8'>
+                <a-col :span='6'>
                     <a-form-item label="产品品牌">
                         <a-input
                             v-decorator="['product_brand']"
                         />
                     </a-form-item>
+                    <a-form-item label="购买日期" align='left'>
+                        <a-date-picker 
+                            v-decorator="['date']" 
+                            placeholder='请选择购买日期'
+                        />
+                    </a-form-item>
+                    <a-form-item label="产品备注">
+                        <a-input
+                            v-decorator="['remarks']"
+                        />
+                    </a-form-item>
                 </a-col>
-                <a-col :span='8'>
-                    <a-form-item label="产品价格">
+                <a-col :span='6'>
+                    <a-form-item label="产品标价">
                         <a-input
                             v-decorator="['product_price']"
+                        />
+                    </a-form-item>
+                    <a-form-item label="实付金额">
+                        <a-input
+                            v-decorator="['pay_money']"
+                            placeholder='请填写用户评价分数'
+                        />
+                    </a-form-item>
+                    <a-form-item label="自己评价">
+                        <a-input
+                            v-decorator="['own_comment']"
+                            placeholder='请填写自己对产品的使用评价'
+                        />
+                    </a-form-item>
+                </a-col>
+                <a-col :span='6'>
+                    <a-form-item label="产品容量">
+                        <a-input
+                            v-decorator="['product_volume']"
+                        />
+                    </a-form-item>
+                    <a-form-item label="产品功效">
+                        <a-input
+                            v-decorator="['product_effect']"
                         />
                     </a-form-item>
                 </a-col>
@@ -59,6 +100,7 @@
 <script>
 import { post } from '../utils/request'
 import { productUse } from '../utils/tool'
+import moment from 'moment'
 export default {
     name: 'AddProduct',
     data () {
@@ -73,7 +115,10 @@ export default {
             e.preventDefault();
             this.form.validateFields((err, values) => {
                 if (!err) {
-                    this.submitData(values)
+                    this.submitData({
+                        ...values,
+                        buy_date: moment(values.date).format('YYYY-MM-DD')
+                    })
                 }
             });
             

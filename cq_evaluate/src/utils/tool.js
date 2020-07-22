@@ -20,5 +20,14 @@ export const productUse = [
     }, {
         key: 7,
         name: '美容仪'
+    }, {
+        key: 8,
+        name: '气垫BB'
+    }, {
+        key: 9,
+        name: '卸妆水'
+    }, {
+        key: 10,
+        name: '隔离'
     }, 
 ]

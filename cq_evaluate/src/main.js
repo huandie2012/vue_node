@@ -16,14 +16,17 @@ import {
   Row,
   Col,
   Table,
-  notification
+  notification,
+  DatePicker,
+  Popconfirm
 } from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$notification = notification
 Vue.use(Layout).use(Menu).use(Icon).use(Avatar).use(Breadcrumb).use(Form)
-.use(Input).use(Select).use(Button).use(Row).use(Col).use(Table)
+.use(Input).use(Select).use(Button).use(Row).use(Col).use(Table).use(DatePicker)
+.use(Popconfirm)
 
 /* eslint-disable no-new */
 new Vue({
