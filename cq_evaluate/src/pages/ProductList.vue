@@ -7,6 +7,12 @@
             :data-source="data"
             :rowKey="record => record._id"
         >
+            <span 
+                slot="product_use" 
+                slot-scope="text, record" 
+            >
+                {{formatterUse(text)}}
+            </span>
             <a-icon 
                 slot="operate" 
                 slot-scope="text, record" 
@@ -38,7 +44,8 @@ const columns = [
         title: '产品用途',
         dataIndex: 'product_use',
         key: 'product_use',
-        align: 'center'
+        align: 'center',
+        scopedSlots: { customRender: 'product_use' },
     }, {
         title: '操作',
         dataIndex: 'operate',
@@ -47,7 +54,8 @@ const columns = [
         scopedSlots: { customRender: 'operate' },
     }
 ]
-import { get } from '../utils/request'
+import { get, post } from '../utils/request'
+import { productUse } from '../utils/tool'
 export default {
     name: 'ProducList',
     mounted () {
@@ -56,7 +64,8 @@ export default {
     data () {
         return {
             columns,
-            data: []
+            data: [],
+            productUse
         }
     },
     methods: {
@@ -67,7 +76,22 @@ export default {
             })
         },
         handleDelete (record) {
-            console.log(record)
+            post('/product/del', {
+                id: record._id
+            }).then(res => {
+                if(res.errno === 0){
+                    this.$notification.success({
+                        message: res.msg
+                    })
+                    this.getProductList()
+                }
+            })
+        },
+        formatterUse (text) {
+            const filterUse = this.productUse.filter(item =>{
+                return item.key == text
+            })
+            return filterUse[0].name
         }
     }
 }

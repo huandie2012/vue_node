@@ -25,10 +25,13 @@ export const request = (url, options, isShowError) => {
     return new Promise((resolve, reject) => {
         axios(API_HOST + url, config)
         .then(res => {
-            // console.log(res)
-            const response = res.data.data
+            const response = res.data
             if(res.data.errno === 0){
-                resolve(response)
+                if(response.data){
+                    resolve(response.data)
+                }else{
+                    resolve(response)
+                }
             }
         })
         .catch(e => {

@@ -32,7 +32,7 @@
                 <a-col :span='8'>
                     <a-form-item label="产品品牌">
                         <a-input
-                            v-decorator="['product_brands']"
+                            v-decorator="['product_brand']"
                         />
                     </a-form-item>
                 </a-col>
@@ -80,7 +80,11 @@ export default {
         },
         submitData (params) {
             post('/product/submit', params).then(res => {
-                console.log(res)
+                if(res.errno === 0){
+                    this.$notification.success({
+                        message: res.msg
+                    });
+                }
                 // this.data = res.lists
             })
         },
