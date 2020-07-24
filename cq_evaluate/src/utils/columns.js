@@ -39,7 +39,8 @@ export const addProductCol = [
         title: '产品功效',
         dataIndex: 'product_effect',
         key: 'product_effect',
-        align: 'center'
+        align: 'center',
+        width: 180
     }, {
         title: '用户评价',
         dataIndex: 'user_comment',
@@ -49,13 +50,14 @@ export const addProductCol = [
         title: '产品备注',
         dataIndex: 'remarks',
         key: 'remarks',
-        align: 'center'
+        align: 'center',
+        width: 100
     }, {
         title: '自己评价',
         dataIndex: 'own_comment',
         key: 'own_comment',
         align: 'center',
-        width: 260
+        width: 200
     }, {
         title: '操作',
         dataIndex: 'operate',
