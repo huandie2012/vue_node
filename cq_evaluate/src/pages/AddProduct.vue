@@ -129,6 +129,7 @@ export default {
                     this.$notification.success({
                         message: res.msg
                     })
+                    this.$router.push('productList')
                 }
                 // this.data = res.lists
             })
